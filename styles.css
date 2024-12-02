@@ -5,6 +5,7 @@
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 }
 
 .container {
@@ -12,18 +13,22 @@ body {
 }
 
 .header {
-    background-color: green;
+    background-color: rgba(32, 114, 172, 1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
-    height: 30vh;
+    height: 40vh;
     padding-top: 30px;
 }
 
 h1 {
     font-size: 3rem;
     padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 #search-input {
@@ -41,22 +46,69 @@ h1 {
     cursor: pointer;
     position: absolute;
     right: 20%;
-    top: 65%;
+    top: -30%;
+}
+
+
+
+.hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    border-radius: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.dropdown {
+    display: none;
+    position: fixed;
+    top: 30%;
+    right: 0;
+    left: 0;
+}
+
+.select-breed {
+    background-color: #ccc;
+    font-size: 1.2rem;
+    padding: 10px;
+    width: 40%;
 }
 
 .main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 1%;
-    margin-top: 18%;
-    margin-inline: 30px;
     justify-content: center;
     align-items: center;
+    margin-top: 20%;
+    margin-inline: 5%;
 }
 
 p {
     font-size: 1.8rem;
-    background-color: gray;
+    background: linear-gradient(to right, #33ffc5, #33a1ff);
     text-transform: capitalize;
     padding: 20px;
     cursor: pointer;
@@ -73,8 +125,16 @@ p {
     
     #search-btn {
         width: 2.3%;
-        top: 65%;
+        top: 55%;
         right: 22%;
+    }
+
+    .dropdown {
+        display: none;
+        position: fixed;
+        top: 30%;
+        right: 0;
+        left: 0;
     }
 }
 
@@ -94,25 +154,37 @@ p {
 
 @media screen and (max-width: 890px) {
     .header {
-        height: 20vh;
+        height: 30vh;
     }
 
     #search-input {
         width: 66%;
         height: 7vh;
         font-size: 1.2rem;
-        border-radius: 30px;
+        padding-top: 20px;
+        border-radius: 34px;
     }
     
     #search-btn {
         width: 3%;
-        top: 63%;
+        top: 45%;
         right: 20%;
+    }
+
+    .dropdown {
+        top: 21%;
+    }
+
+    .main {
+        margin-top: 40%;
     }
     
 }
 
 @media screen and (max-width: 840px) {
+    .header {
+        height: 25vh;
+    }
 
     #search-input {
         width: 80%;
@@ -122,15 +194,19 @@ p {
     
     #search-btn {
         width: 4.5%;
-        top: 56%;
+        top: 47%;
         right: 13%;
+    }
+
+    .main {
+        margin-top: 45%;
     }
     
 }
 
 @media screen and (max-width: 780px){
     .header {
-        height: 25vh;
+        height: 28vh;
     }
 
     #search-input {
@@ -141,12 +217,12 @@ p {
 
     #search-btn {
         width: 4%;
-        top: 53%;
+        top: 50%;
         right: 15%;
     }
 
     .main {
-        margin-top: 60%;
+        margin-top: 40%;
     }
      
 }
@@ -160,32 +236,60 @@ p {
 }
 
 @media screen and (max-width: 480px) {
+    .header {
+        height: 32vh;
+    }
+
     #search-btn {
         width: 4.6%;
-        top: 65%;
+        top: 55%;
         right: 15%;
+    }
+
+    .dropdown {
+        top: 24%;
+    }
+
+    .main {
+        margin-top: 60%;
     }
 }
 
 @media screen and (max-width: 390px) {
+    .header {
+        height: 37vh;
+    }
+
     #search-btn {
         width: 4.6%;
-        top: 72%;
+        top: 55%;
         right: 15%;
+    }
+
+    .dropdown {
+        top: 27%;
+    }
+
+    .main {
+        margin-top: 68%;
     }
 }
 
 @media screen and (max-width: 360px) {
     #search-btn {
         width: 4.6%;
-        top: 68%;
+        top: 50%;
         right: 15%;
+    }
+
+    .main {
+        margin-top: 75%;
     }
 }
 
 @media screen and (max-width: 320px) {
     .header {
-        height: 35vh;
+        height: 50vh;
     }
 
     #search-input {
@@ -193,6 +297,10 @@ p {
     }    
 
     #search-btn {
-        top: 73%;
+        top: 56%;
+    }
+
+    .dropdown {
+        top: 35%;
     }
 }
